@@ -14,7 +14,10 @@ RUN cd /tmp && \
 FROM scratch
 
 COPY --from=build /tmp/snmp_exporter/snmp_exporter /snmp_exporter
-COPY --from=build /tmp/snmp_exporter/snmp.yml /snmp.yml
+COPY --from=build /tmp/snmp_exporter/snmp.yml /etc/snmp/snmp.yml
 
+COPY rootfs /
+
+USER snmp
 ENTRYPOINT ["/snmp_exporter"]
-CMD ["--config.file=/snmp.yml"]
+CMD ["--config.file=/etc/snmp/snmp.yml"]

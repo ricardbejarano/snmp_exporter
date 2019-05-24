@@ -20,7 +20,7 @@ Available on [Quay](https://quay.io) as [`quay.io/ricardbejarano/snmp_exporter`]
 
 ## Features
 
-* Can't get any smaller (`~14MB`), only two files: the binary and the config
+* Can't get any smaller (`~14MB`)
 * Binary pulled from the official website
 * Built `FROM scratch`, see the [Filesystem](#Filesystem) section below for an exhaustive list of the image's contents
 * Reduced attack surface (no `bash`, no UNIX tools, no package manager...)
@@ -35,7 +35,7 @@ docker build -t snmp_exporter .
 
 ## Volumes
 
-- Bind your **configuration file** at `/snmp.yml`.
+- Bind your **configuration file** at `/etc/snmp/snmp.yml`.
 
 
 ## Filesystem
@@ -44,8 +44,12 @@ The images' contents are:
 
 ```
 /
-├── snmp_exporter
-└── snmp.yml
+├── etc/
+│   ├── group
+│   ├── passwd
+│   └── snmp/
+│       └── snmp.yml
+└── snmp_exporter
 ```
 
 
