@@ -26,16 +26,18 @@ Available on [Quay](https://quay.io) as [`quay.io/ricardbejarano/snmp_exporter`]
 * Reduced attack surface (no `bash`, no UNIX tools, no package manager...)
 
 
+## Configuration
+
+### Volumes
+
+- Bind your **configuration file** at `/etc/snmp/snmp.yml`.
+
+
 ## Building
 
 ```bash
 docker build -t snmp_exporter .
 ```
-
-
-## Volumes
-
-- Bind your **configuration file** at `/etc/snmp/snmp.yml`.
 
 
 ## Filesystem
