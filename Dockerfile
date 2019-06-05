@@ -13,8 +13,8 @@ RUN cd /tmp && \
 
 FROM scratch
 
-COPY --from=build /tmp/snmp_exporter/snmp_exporter /snmp_exporter
-COPY --from=build /tmp/snmp_exporter/snmp.yml /etc/snmp/snmp.yml
+COPY --from=build /tmp/snmp_exporter/snmp.yml /etc/snmp/
+COPY --from=build /tmp/snmp_exporter/snmp_exporter /
 
 COPY rootfs /
 
