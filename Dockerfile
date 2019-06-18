@@ -18,7 +18,6 @@ COPY --from=build /tmp/snmp_exporter/snmp_exporter /
 COPY rootfs /
 
 USER snmp:snmp
-WORKDIR /
 EXPOSE 9116/tcp
 ENTRYPOINT ["/snmp_exporter"]
 CMD ["--config.file=/etc/snmp/snmp.yml"]
