@@ -20,17 +20,17 @@ Available on [Quay](https://quay.io) as [`quay.io/ricardbejarano/snmp_exporter`]
 
 ## Features
 
-* Can't get any smaller (`~14MB`)
-* Binary pulled from the official website
-* Built `FROM scratch`, see the [Filesystem](#filesystem) section below for an exhaustive list of the image's contents
-* Reduced attack surface (no `bash`, no UNIX tools, no package manager...)
+* Super tiny (`~14.0MB`)
+* Binary pulled from official website
+* Built `FROM scratch`, see [Filesystem](#filesystem) for an exhaustive list of the image's contents
+* Reduced attack surface (no shell, no UNIX tools, no package manager...)
 
 
 ## Configuration
 
 ### Volumes
 
-- Bind your **configuration file** at `/etc/snmp/snmp.yml`.
+- Bind your **configuration** at `/etc/snmp/snmp.yml`.
 
 
 ## Building
