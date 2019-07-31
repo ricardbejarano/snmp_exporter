@@ -1,6 +1,6 @@
-<p align=center><img src=https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/198/fire-extinguisher_1f9ef.png width=120px></p>
-<h1 align=center>snmp_exporter (container image)</h1>
-<p align=center>The simplest container image of the official Prometheus <a href=https://github.com/prometheus/snmp_exporter>snmp_exporter</a></p>
+<p align="center"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/198/fire-extinguisher_1f9ef.png" width="120px"></p>
+<h1 align="center">snmp_exporter (container image)</h1>
+<p align="center">Built-from-source container image of Prometheus' <a href="https://github.com/prometheus/snmp_exporter">snmp_exporter</a></p>
 
 
 ## Tags
@@ -20,17 +20,11 @@ Available on [Quay](https://quay.io) as [`quay.io/ricardbejarano/snmp_exporter`]
 
 ## Features
 
-* Super tiny (`~14.0MB`)
-* Binary pulled from official website
-* Built `FROM scratch`, see [Filesystem](#filesystem) for an exhaustive list of the image's contents
+* Super tiny (about `14.0MB`)
+* Binary pulled from official sources during build time
+* Built `FROM scratch`, with zero bloat (see [Filesystem](#filesystem))
 * Reduced attack surface (no shell, no UNIX tools, no package manager...)
-
-
-## Configuration
-
-### Volumes
-
-- Bind your **configuration** at `/etc/snmp/snmp.yml`.
+* Runs as unprivileged (non-`root`) user
 
 
 ## Building
@@ -40,18 +34,22 @@ docker build -t snmp_exporter .
 ```
 
 
-## Filesystem
+## Configuration
 
-The images' contents are:
+### Volumes
+
+- Mount your **configuration** at `/snmp.yml`.
+
+
+## Filesystem
 
 ```
 /
-├── etc/
-│   ├── group
-│   ├── passwd
-│   └── snmp/
-│       └── snmp.yml
-└── snmp_exporter
+├── snmp.yml
+├── snmp_exporter
+└── etc/
+    ├── group
+    └── passwd
 ```
 
 
