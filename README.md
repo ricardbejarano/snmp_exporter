@@ -1,6 +1,6 @@
 <p align="center"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/198/fire-extinguisher_1f9ef.png" width="120px"></p>
 <h1 align="center">snmp_exporter (container image)</h1>
-<p align="center">Built-from-source container image of Prometheus' <a href="https://github.com/prometheus/snmp_exporter">snmp_exporter</a></p>
+<p align="center">Minimal container image of Prometheus' <a href="https://github.com/prometheus/snmp_exporter">snmp_exporter</a></p>
 
 
 ## Tags
