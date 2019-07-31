@@ -45,11 +45,11 @@ docker build -t snmp_exporter .
 
 ```
 /
+├── etc
+│   ├── group
+│   └── passwd
 ├── snmp.yml
-├── snmp_exporter
-└── etc/
-    ├── group
-    └── passwd
+└── snmp_exporter
 ```
 
 
