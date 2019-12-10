@@ -1,7 +1,7 @@
 FROM alpine:3 AS build
 
-ARG VERSION="0.15.0"
-ARG CHECKSUM="c5e8e58a8187e9d0bd41dbeb7e09a15f5a59626821fa801dd99828d9cdd7efe9"
+ARG VERSION="0.16.1"
+ARG CHECKSUM="7de711be5f73f2fe11b450bd8caade9e20aa802a0c64a73651035065bf049ef5"
 
 ADD https://github.com/prometheus/snmp_exporter/releases/download/v$VERSION/snmp_exporter-$VERSION.linux-amd64.tar.gz /tmp/snmp_exporter.tar.gz
 
