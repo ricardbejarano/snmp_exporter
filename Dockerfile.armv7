@@ -13,7 +13,7 @@ RUN echo "nogroup:*:100:nobody" > /tmp/group && \
     echo "nobody:*:100:100:::" > /tmp/passwd
 
 
-FROM scratch
+FROM ricardbejarano/scratch:arm
 
 COPY --from=build --chown=100:100 /tmp/snmp_exporter/snmp_exporter \
                                   /tmp/snmp_exporter/snmp.yml \
