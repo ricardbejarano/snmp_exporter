@@ -10,14 +10,12 @@
 Available on [Docker Hub](https://hub.docker.com) as [`ricardbejarano/snmp_exporter`](https://hub.docker.com/r/ricardbejarano/snmp_exporter):
 
 - [`0.16.1`, `master`, `latest` *(Dockerfile)*](https://github.com/ricardbejarano/snmp_exporter/blob/master/Dockerfile) (about `14MB`)
-- [`0.16.1-armv7`, `master-armv7`, `latest-armv7` *(Dockerfile.armv7)*](https://github.com/ricardbejarano/snmp_exporter/blob/master/Dockerfile.armv7) (about `12.2MB`)
 
 ### Quay
 
 Available on [Quay](https://quay.io) as:
 
 - [`quay.io/ricardbejarano/snmp_exporter`](https://quay.io/repository/ricardbejarano/snmp_exporter), tags: [`0.16.1`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/snmp_exporter/blob/master/Dockerfile.glibc) (about `14MB`)
-- [`quay.io/ricardbejarano/snmp_exporter-armv7`](https://quay.io/repository/ricardbejarano/snmp_exporter-armv7), tags: [`0.16.1`, `master`, `latest` *(Dockerfile.glibc-armv7)*](https://github.com/ricardbejarano/snmp_exporter/blob/master/Dockerfile.glibc-armv7) (about `12.2MB`)
 
 
 ## Features
