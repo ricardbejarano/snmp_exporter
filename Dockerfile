@@ -1,26 +1,31 @@
-FROM alpine:3 AS build
+FROM golang:1-alpine AS build
 
 ARG VERSION="0.19.0"
-ARG CHECKSUM="adbf920d023ed9d170dd09373bb1d42f436fa62e8cfc5a023d9b44003fb2ad91"
+ARG CHECKSUM="07384297259af68b72e666d920fd82349cdb7f47712a66e3dbcfaee086265dfc"
 
-ADD https://github.com/prometheus/snmp_exporter/releases/download/v$VERSION/snmp_exporter-$VERSION.linux-amd64.tar.gz /tmp/snmp_exporter.tar.gz
+ADD https://github.com/prometheus/snmp_exporter/archive/v$VERSION.tar.gz /tmp/snmp_exporter.tar.gz
 
-RUN [ "$CHECKSUM" = "$(sha256sum /tmp/snmp_exporter.tar.gz | awk '{print $1}')" ] && \
-    tar -C /tmp -xf /tmp/snmp_exporter.tar.gz
+RUN [ "$(sha256sum /tmp/snmp_exporter.tar.gz | awk '{print $1}')" = "$CHECKSUM" ] && \
+    apk add curl make && \
+    tar -C /tmp -xf /tmp/snmp_exporter.tar.gz && \
+    mkdir -p /go/src/github.com/prometheus && \
+    mv /tmp/snmp_exporter-$VERSION /go/src/github.com/prometheus/snmp_exporter && \
+    cd /go/src/github.com/prometheus/snmp_exporter && \
+      make build
 
-RUN mkdir -p /rootfs/etc && \
-    cp \
-      /tmp/snmp_exporter-$VERSION.linux-amd64/snmp_exporter \
-      /tmp/snmp_exporter-$VERSION.linux-amd64/snmp.yml \
-      /rootfs/ && \
-    echo "nogroup:*:100:nobody" > /rootfs/etc/group && \
-    echo "nobody:*:100:100:::" > /rootfs/etc/passwd
+RUN mkdir -p /rootfs && \
+      cp /go/src/github.com/prometheus/snmp_exporter/snmp.yml /rootfs/ && \
+    mkdir -p /rootfs/bin && \
+      cp /go/src/github.com/prometheus/snmp_exporter/snmp_exporter /rootfs/bin/ && \
+    mkdir -p /rootfs/etc && \
+      echo "nogroup:*:10000:nobody" > /rootfs/etc/group && \
+      echo "nobody:*:10000:10000:::" > /rootfs/etc/passwd
 
 
 FROM scratch
 
-COPY --from=build --chown=100:100 /rootfs /
+COPY --from=build --chown=10000:10000 /rootfs /
 
-USER 100:100
+USER 10000:10000
 EXPOSE 9116/tcp
-ENTRYPOINT ["/snmp_exporter"]
+ENTRYPOINT ["/bin/snmp_exporter"]
