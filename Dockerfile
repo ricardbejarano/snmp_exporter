@@ -1,7 +1,7 @@
 FROM golang:1-alpine AS build
 
-ARG VERSION="0.24.0"
-ARG CHECKSUM="5633c603f7077b9fa63d38c6824421812fd0891f274db2f8be730750200c1244"
+ARG VERSION="0.24.1"
+ARG CHECKSUM="9f9a627e273ab257e9884b45446300fc405e2196eeeff3bc85029fe2fa11870d"
 
 ADD https://github.com/prometheus/snmp_exporter/archive/v$VERSION.tar.gz /tmp/snmp_exporter.tar.gz
 
