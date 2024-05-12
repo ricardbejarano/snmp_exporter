@@ -20,13 +20,13 @@
 
 Available on Docker Hub as [`docker.io/ricardbejarano/snmp_exporter`](https://hub.docker.com/r/ricardbejarano/snmp_exporter):
 
-- [`0.25.0`, `latest` *(Dockerfile)*](Dockerfile)
+- [`0.26.0`, `latest` *(Dockerfile)*](Dockerfile)
 
 ### RedHat Quay
 
 Available on RedHat Quay as [`quay.io/ricardbejarano/snmp_exporter`](https://quay.io/repository/ricardbejarano/snmp_exporter):
 
-- [`0.25.0`, `latest` *(Dockerfile)*](Dockerfile)
+- [`0.26.0`, `latest` *(Dockerfile)*](Dockerfile)
 
 
 ## Configuration
